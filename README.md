@@ -119,17 +119,6 @@ train(enc, dec, loader, device, epochs=20)
   * Decoder weights
   * Vocabulary (`word2idx`)
 
----
-
-## Deployment
-
-* The app can be hosted online using **Streamlit Community Cloud** for free:
-
-  * Push your project folder to GitHub
-  * Go to [Streamlit Cloud](https://share.streamlit.io/)
-  * Connect the repo and deploy
-
----
 
 ## License
 
