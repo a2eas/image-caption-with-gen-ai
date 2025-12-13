@@ -184,28 +184,10 @@ def train(enc, dec, loader, device, epochs=20):
     }, "flickr8k_model.pth")
     print("Model saved!")
 
-#test function
-def generate_caption(image_path, enc, dec, vocab, transform, max_len=50):
-    enc.eval()
-    dec.eval()
-    image = Image.open(image_path).convert("RGB")
-    image = transform(image).unsqueeze(0).to(device)
-    with torch.no_grad():
-        features = enc(image)
-        tgt = torch.tensor([[vocab.word2idx["<SOS>"]]], device=device)
-        caption = []
-        for _ in range(max_len):
-            out = dec(tgt, features)
-            pred = out[:, -1, :].argmax(-1).unsqueeze(0)
-            if pred.item() == vocab.word2idx["<EOS>"]:
-                break
-            caption.append(pred.item())
-            tgt = torch.cat([tgt, pred.unsqueeze(0)], dim=1)
-    return " ".join([vocab.idx2word[idx] for idx in caption])
-
 
 if __name__ == "__main__":
     train(enc, dec, loader, device)
     # Example usage:
     # print(generate_caption(os.path.join(IMG_FOLDER, "2603792708_18a97bac97.jpg"),
     #                        enc, dec, vocab, transform))
+
