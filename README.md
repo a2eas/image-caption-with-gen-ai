@@ -33,7 +33,7 @@ project_folder/
 1. **Clone the repository** (or copy files into a folder):
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/a2eas/image-caption-with-gen-ai
 cd project_folder
 ```
 
