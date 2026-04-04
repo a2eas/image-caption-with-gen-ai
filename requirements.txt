@@ -1,0 +1,4 @@
+streamlit
+torch --index-url https://download.pytorch.org/whl/cpu
+transformers
+Pillow
